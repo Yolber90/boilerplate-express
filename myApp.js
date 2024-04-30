@@ -29,46 +29,13 @@ app.get("/json", function(req, res){
 });
 
 
-app.use(function middleware(req, res, next){
-    let test = req.method + req.path + req.ip
-    res.send(test)
+app.get("/now", function(req, res, next){
+    req.time = new Date().toString()
     next()
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+},function(req, res){
+    res.send({time: req.time})
+}
+ )
 
 
 
